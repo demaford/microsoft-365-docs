@@ -1,4 +1,4 @@
-name: Protected Files
+name: PR has no protected files
 
 permissions:
   pull-requests: write
@@ -9,12 +9,9 @@ on: [pull_request_target]
 
 jobs:
 
-  check-files:
+  protected-files:
     uses: MicrosoftDocs/microsoft-365-docs/.github/workflows/Shared-ProtectedFiles.yml@workflows-prod
     with:
       PayloadJson: ${{ toJSON(github) }}
     secrets:
       AccessToken: ${{ secrets.GITHUB_TOKEN }}
-
-
-  
